@@ -8,6 +8,18 @@
 
 <body>
     <div id="header">
+        
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                  <li class="{{message.tags}}">
+                      {{ message|safe }}
+                      <a href="#" class="close">X</a>
+                  </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+            
         <span class="logo">Bookmarks</span>
         
         {% if request.user.is_authenticated %}
